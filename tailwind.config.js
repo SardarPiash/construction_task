@@ -8,7 +8,11 @@ export default {
     extend: {},
     fontFamily:{
       notoSans:["Noto Sans"," sans-serif"]
+    },
+    boxShadow: {
+      'lg-light-black': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
     }
+    
   },
   plugins: [],
 }

@@ -1,31 +1,31 @@
 export const role =[
     {
-        "url":"",
+        "url":"Image 2.svg",
         "title":"Project Managers",
         "description":"Oversee construction projects, ensuring timelines, budgets, and quality meet objectives with effective team coordination.",
     },
     {
-        "url":"",
+        "url":"Image 3.svg",
         "title":"Site Supervisors",
         "description":"Site supervisors oversee daily operations, ensuring safety, efficiency, and compliance on construction sites.",
     },
     {
-        "url":"",
+        "url":"Image 4.svg",
         "title":"Engineers (Civil, Electrical)",
         "description":"Construction engineers manage projects, ensuring designs are implemented effectively, meeting safety and quality standards.",
     },
     {
-        "url":"",
+        "url":"Image 5.svg",
         "title":"Architects",
         "description":"Architects design buildings and structures, balancing functionality, aesthetics, and client requirements with technical expertise.",
     },
     {
-        "url":"",
+        "url":"Image 6.svg",
         "title":"Skilled Tradespeople",
         "description":"Construction skilled tradespeople specialize in various crafts, ensuring quality workmanship in building and renovation projects.",
     },
     {
-        "url":"",
+        "url":"Image 7.svg",
         "title":"General Laborers",
         "description":"General laborers support construction projects by performing tasks such as loading, unloading, and site cleaning.",
     },

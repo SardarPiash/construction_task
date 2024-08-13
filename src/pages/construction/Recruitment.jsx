@@ -2,6 +2,7 @@ import React from "react";
 import Img_1 from "../../assets/images/Image 1.svg";
 import logo from '../../assets/icon/Icon 3.svg'
 import { role } from "../../data/role";
+import ImageUrl from "../../component/DynamicImgUrl";
 
 export default function Recruitment() {
   console.log(role);
@@ -45,7 +46,7 @@ export default function Recruitment() {
     <h2 className="text-3xl font-bold text-center mb-6">
       Roles we Fill
     </h2>
-    <p className="text-center text-xs mb-10">
+    <p className="text-center text-sm mb-10">
       "We fill roles in construction, matching skilled professionals
       like engineers, supervisors,
       <br />
@@ -55,20 +56,24 @@ export default function Recruitment() {
       {role.slice(0, 4).map((data, index) => (
         <div
           key={index}
-          className="bg-white p-3 rounded-lg shadow-2xl text-center"
-          style={{ minHeight: '200px', maxWidth: 'calc(100% + 30px)' }}
+          className="bg-white p-3 rounded-lg text-center"
+          style={{
+            minHeight: '200px',
+            maxWidth: 'calc(100% + 30px)',
+            boxShadow: '4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)',
+          }}
         >
           <img
-            src={data.image}
+            src={ImageUrl(data.url)}
             alt={data.title}
             className="w-full h-40 object-cover rounded-md mb-4"
           />
           <h3 className="text-xl font-semibold mb-2">{data.title}</h3>
-          <p className="text-black mb-4  tracking-tighter">{data.description}</p>
+          <p className="text-black mb-4 tracking-tighter">{data.description}</p>
           <button className="text-red-600 font-medium">
-            <div className=" flex">
-            <span>Contact Us</span>
-            <img src={logo} />
+            <div className="flex">
+              <span>Contact Us</span>
+              <img src={logo} alt="Contact Us" />
             </div>
           </button>
         </div>
@@ -81,32 +86,35 @@ export default function Recruitment() {
         {role.slice(4, 6).map((data, index) => (
           <div
             key={index}
-            className="bg-white p-3 rounded-lg shadow-2xl text-center"
+            className="bg-white p-3 rounded-lg text-center"
             style={{
               width: 'calc(100% + 30px)',
               maxWidth: '22rem',
               minHeight: '200px',
+              boxShadow: '4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)',
             }}
           >
             <img
-              src={data.image}
+              src={ImageUrl(data.url)}
               alt={data.title}
               className="w-full h-40 object-cover rounded-md mb-4"
             />
             <h3 className="text-xl font-semibold mb-2">{data.title}</h3>
             <p className="text-black mb-4 tracking-tighter">{data.description}</p>
             <button className="text-red-600 font-medium">
-            <div className=" flex">
-            <span>Contact Us</span>
-            <img src={logo} />
-            </div>
-          </button>
+              <div className="flex">
+                <span>Contact Us</span>
+                <img src={logo} alt="Contact Us" />
+              </div>
+            </button>
           </div>
         ))}
       </div>
     )}
   </div>
 </section>
+
+
 
 
 
