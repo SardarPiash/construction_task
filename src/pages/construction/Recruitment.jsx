@@ -13,7 +13,7 @@ export default function Recruitment() {
         <section className="text-center w-full  flex mt-20">
           <div className="w-1/2 mt-1">
             <div className="container mx-auto  w-9/12 ">
-              <h1 className="text-3xl font-bold mb-2 text-left tracking-widesr">
+              <h1 className="text-3xl font-bold mb-9 text-left tracking-widesr leading-snug">
                 Your Partner in International Construction Recruitment
               </h1>
               <p className="text-sm mb-3 max-w-3xl mx-auto text-justify">
@@ -89,7 +89,7 @@ export default function Recruitment() {
             className="bg-white p-3 rounded-lg text-center"
             style={{
               width: 'calc(100% + 30px)',
-              maxWidth: '22rem',
+              maxWidth: '21.8rem',
               minHeight: '200px',
               boxShadow: '4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)',
             }}
