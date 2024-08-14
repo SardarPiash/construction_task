@@ -1,8 +1,9 @@
 import React from "react";
 import Img_1 from "../../assets/images/Image 1.svg";
-import logo from '../../assets/icon/Icon 3.svg'
+import logo from "../../assets/icon/Icon 3.svg";
 import { role } from "../../data/role";
 import ImageUrl from "../../component/DynamicImgUrl";
+import Benefits from "./Benefits";
 
 export default function Recruitment() {
   console.log(role);
@@ -42,82 +43,87 @@ export default function Recruitment() {
         </section>
 
         <section className="bg-white text-black py-16 mt-5">
-  <div className="container mx-auto px-4">
-    <h2 className="text-3xl font-bold text-center mb-6">
-      Roles we Fill
-    </h2>
-    <p className="text-center text-sm mb-10">
-      "We fill roles in construction, matching skilled professionals
-      like engineers, supervisors,
-      <br />
-      and laborers to projects requiring expertise and efficiency."
-    </p>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {role.slice(0, 4).map((data, index) => (
-        <div
-          key={index}
-          className="bg-white p-3 rounded-lg text-center"
-          style={{
-            minHeight: '200px',
-            maxWidth: 'calc(100% + 30px)',
-            boxShadow: '4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)',
-          }}
-        >
-          <img
-            src={ImageUrl(data.url)}
-            alt={data.title}
-            className="w-full h-40 object-cover rounded-md mb-4"
-          />
-          <h3 className="text-xl font-semibold mb-2">{data.title}</h3>
-          <p className="text-black mb-4 tracking-tighter">{data.description}</p>
-          <button className="text-red-600 font-medium">
-            <div className="flex">
-              <span>Contact Us</span>
-              <img src={logo} alt="Contact Us" />
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-6">
+              Roles we Fill
+            </h2>
+            <p className="text-center text-sm mb-10">
+              "We fill roles in construction, matching skilled professionals
+              like engineers, supervisors,
+              <br />
+              and laborers to projects requiring expertise and efficiency."
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {role.slice(0, 4).map((data, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-3 rounded-lg text-center"
+                  style={{
+                    minHeight: "200px",
+                    maxWidth: "calc(100% + 30px)",
+                    boxShadow:
+                      "4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)",
+                  }}
+                >
+                  <img
+                    src={ImageUrl(data.url,'images')}
+                    alt={data.title}
+                    className="w-full h-40 object-cover rounded-md mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">{data.title}</h3>
+                  <p className="text-black mb-4 tracking-tighter">
+                    {data.description}
+                  </p>
+                  <button className="text-red-600 font-medium">
+                    <div className="flex">
+                      <span>Contact Us</span>
+                      <img src={logo} alt="Contact Us" />
+                    </div>
+                  </button>
+                </div>
+              ))}
             </div>
-          </button>
-        </div>
-      ))}
-    </div>
 
-    {/* Centering the last two cards while keeping consistent size */}
-    {role.length % 4 !== 0 && (
-      <div className="flex justify-center gap-8 mt-8">
-        {role.slice(4, 6).map((data, index) => (
-          <div
-            key={index}
-            className="bg-white p-3 rounded-lg text-center"
-            style={{
-              width: 'calc(100% + 30px)',
-              maxWidth: '21.8rem',
-              minHeight: '200px',
-              boxShadow: '4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)',
-            }}
-          >
-            <img
-              src={ImageUrl(data.url)}
-              alt={data.title}
-              className="w-full h-40 object-cover rounded-md mb-4"
-            />
-            <h3 className="text-xl font-semibold mb-2">{data.title}</h3>
-            <p className="text-black mb-4 tracking-tighter">{data.description}</p>
-            <button className="text-red-600 font-medium">
-              <div className="flex">
-                <span>Contact Us</span>
-                <img src={logo} alt="Contact Us" />
+            {role.length % 4 !== 0 && (
+              <div className="flex justify-center gap-8 mt-8">
+                {role.slice(4, 6).map((data, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-3 rounded-lg text-center"
+                    style={{
+                      width: "calc(100% + 30px)",
+                      maxWidth: "21.8rem",
+                      minHeight: "200px",
+                      boxShadow:
+                        "4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)",
+                    }}
+                  >
+                    <img
+                      src={ImageUrl(data.url,'images')}
+                      alt={data.title}
+                      className="w-full h-40 object-cover rounded-md mb-4"
+                    />
+                    <h3 className="text-xl font-semibold mb-2">{data.title}</h3>
+                    <p className="text-black mb-4 tracking-tighter">
+                      {data.description}
+                    </p>
+                    <button className="text-red-600 font-medium">
+                      <div className="flex">
+                        <span>Contact Us</span>
+                        <img src={logo} alt="Contact Us" />
+                      </div>
+                    </button>
+                  </div>
+                ))}
               </div>
-            </button>
+            )}
           </div>
-        ))}
+        </section>
       </div>
-    )}
-  </div>
-</section>
 
-
-
-
-
+      {/* Benefits section */}
+      <div>
+        <Benefits />
       </div>
     </div>
   );

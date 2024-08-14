@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default function ImageUrl(cover) {
-  return new URL(`../assets/images/${cover}`, import.meta.url).href;
+export default function ImageUrl(cover,path) {
+  return new URL(`../assets/${path}/${cover}`, import.meta.url).href;
 }

@@ -7,6 +7,7 @@ export default function IndustryPage() {
     <div>
         <HeroSection />
         <Recruitment />
+        
     </div>
   )
 }
