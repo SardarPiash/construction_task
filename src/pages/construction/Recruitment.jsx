@@ -4,6 +4,7 @@ import logo from "../../assets/icon/Icon 3.svg";
 import { role } from "../../data/role";
 import ImageUrl from "../../component/DynamicImgUrl";
 import Benefits from "./Benefits";
+import ContactUs from "./ContactUs";
 
 export default function Recruitment() {
   console.log(role);
@@ -124,6 +125,9 @@ export default function Recruitment() {
       {/* Benefits section */}
       <div>
         <Benefits />
+      </div>
+      <div>
+        <ContactUs />
       </div>
     </div>
   );
