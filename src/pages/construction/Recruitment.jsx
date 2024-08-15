@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Img_1 from "../../assets/images/Image 1.svg";
 import logo from "../../assets/icon/Icon 3.svg";
 import { role } from "../../data/role";
@@ -6,8 +6,15 @@ import ImageUrl from "../../component/DynamicImgUrl";
 import Benefits from "./Benefits";
 import ContactUs from "./ContactUs";
 
-export default function Recruitment() {
-  console.log(role);
+
+export default function Recruitment({scroll}) {
+  const ref = useRef(null)
+  //console.log(role);
+function handleScroll(){
+  console.log("click")
+ref.current?.scrollIntoView({behaviour : 'smooth'})
+}
+
   return (
     <div className="font-notoSans">
       <div className="bg-white text-black-800 ">
@@ -30,7 +37,7 @@ export default function Recruitment() {
                 with ease."
               </p>
               <span className="flex justify-items-start">
-                <button className="bg-blue-800 text-white px-4 py-2 rounded-sm">
+                <button onClick={handleScroll} className="bg-blue-800 text-white px-4 py-2 rounded-sm">
                   Contact Us
                 </button>
               </span>
@@ -75,7 +82,7 @@ export default function Recruitment() {
                   <p className="text-black mb-4 tracking-tighter">
                     {data.description}
                   </p>
-                  <button className="text-red-600 font-medium">
+                  <button onClick={handleScroll} className="text-red-600 font-medium">
                     <div className="flex">
                       <span>Contact Us</span>
                       <img src={logo} alt="Contact Us" />
@@ -108,7 +115,7 @@ export default function Recruitment() {
                     <p className="text-black mb-4 tracking-tighter">
                       {data.description}
                     </p>
-                    <button className="text-red-600 font-medium">
+                    <button onClick={handleScroll} className="text-red-600 font-medium">
                       <div className="flex">
                         <span>Contact Us</span>
                         <img src={logo} alt="Contact Us" />
@@ -127,7 +134,7 @@ export default function Recruitment() {
         <Benefits />
       </div>
       <div>
-        <ContactUs />
+        <ContactUs ref={ref}/>
       </div>
     </div>
   );
