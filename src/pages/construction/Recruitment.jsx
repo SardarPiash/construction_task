@@ -6,13 +6,13 @@ import ImageUrl from "../../component/DynamicImgUrl";
 import Benefits from "./Benefits";
 import ContactUs from "./ContactUs";
 
-export default function Recruitment({ scroll }) {
-  const ref = useRef(null);
+ function RecruitmentPage({scrollFunction},ref) {
+  // const ref = useRef(null || scroll);
 
-  function handleScroll() {
-    console.log("click");
-    ref.current?.scrollIntoView({ behavior: "smooth" });
-  }
+  // function handleScroll() {
+  //   console.log("click");
+  //   ref.current?.scrollIntoView({ behavior: "smooth" });
+  // }
 
   return (
     <div className="font-notoSans">
@@ -37,7 +37,7 @@ export default function Recruitment({ scroll }) {
               </p>
               <span className="flex justify-center md:justify-start">
                 <button
-                  onClick={handleScroll}
+                  onClick={scrollFunction}
                   className="bg-blue-800 text-white px-4 py-2 rounded-sm"
                 >
                   Contact Us
@@ -91,7 +91,7 @@ export default function Recruitment({ scroll }) {
                     {data.description}
                   </p>
                   <button
-                    onClick={handleScroll}
+                    onClick={scrollFunction}
                     className="text-red-600 font-medium"
                   >
                     <div className="flex items-center justify-center">
@@ -129,7 +129,7 @@ export default function Recruitment({ scroll }) {
                       {data.description}
                     </p>
                     <button
-                      onClick={handleScroll}
+                      onClick={scrollFunction}
                       className="text-red-600 font-medium"
                     >
                       <div className="flex items-center justify-center">
@@ -150,8 +150,12 @@ export default function Recruitment({ scroll }) {
         <Benefits />
       </div>
       <div>
-        <ContactUs ref={ref} />
+        <ContactUs ref={ref}/>
       </div>
     </div>
   );
 }
+
+const Recruitment = React.forwardRef(RecruitmentPage)
+
+export default Recruitment

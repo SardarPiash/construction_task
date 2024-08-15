@@ -2,12 +2,14 @@ import React from 'react'
 import HeroSection from '../../component/HeroSection'
 import Recruitment from './Recruitment'
 
-export default function IndustryPage() {
+ function Industry({scrollFunction},ref) {
   return (
     <div>
         <HeroSection />
-        <Recruitment  />
-        
+        <Recruitment ref={ref} scrollFunction={scrollFunction}/>
     </div>
   )
 }
+ const IndustryPage = React.forwardRef(Industry)
+
+export default  IndustryPage

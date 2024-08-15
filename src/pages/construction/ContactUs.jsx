@@ -15,7 +15,7 @@ const ContactUs = React.forwardRef((props, ref) => {
   const [phoneError, setPhoneError] = useState("");
   const [msg, setMsg] = useState("");
   const [msgError, setMsgError] = useState("");
-  const [showCard, setShowCard] = useState(false); // State to control the Card visibility
+  const [showCard, setShowCard] = useState(false); 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -59,7 +59,7 @@ const ContactUs = React.forwardRef((props, ref) => {
   }
 
   return (
-    <div ref={ref} className="font-notoSans">
+    <div ref={ref}  className="font-notoSans">
       <div
         className="bg-white mx-auto mt-6 flex flex-col md:flex-row md:w-7/12 w-full h-auto md:h-82 mb-20"
         style={{

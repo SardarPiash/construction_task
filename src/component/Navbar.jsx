@@ -4,7 +4,7 @@ import Logo from "../assets/icon/Logo.svg";
 import CountryIcon from "../assets/icon/Country Icon.svg";
 import Icon_1 from "../assets/icon/Icon 1.svg";
 
-export default function Navbar() {
+export default function Navbar({scroll}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
@@ -148,7 +148,7 @@ export default function Navbar() {
         <div className="mt-1">
           <span>
             <Link to="/" className="flex border rounded-md p-1.5 bg-blue-600">
-              <button className="text-white">Contact Us</button>
+              <button onClick={scroll} className="text-white">Contact Us</button>
             </Link>
           </span>
         </div>
@@ -309,7 +309,7 @@ export default function Navbar() {
             </span>
             <span className="mt-auto">
               <Link to="/" className="flex border rounded-md p-2 bg-blue-600">
-                <button className="text-white">Contact Us</button>
+                <button onClick={scroll} className="text-white">Contact Us</button>
               </Link>
             </span>
           </div>
