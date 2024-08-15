@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import hireandFire from "../assets/icon/Logo.svg";
 import arrowIcon from "../assets/icon/Icon 3_white.svg";
 import mailIcon from "../assets/icon/Icon 10.svg";
@@ -9,8 +9,41 @@ import instagram from "../assets/icon/instagram.svg";
 import twitter from "../assets/icon/twitter.svg";
 import telegram from "../assets/icon/telegram.svg";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Footer({scrollFunction}) {
+  const [email,setEmail] = useState("");
+//toast function
+const notify = (e) =>{
+  e.preventDefault();
+  if(email === ""){
+    toast.error('Give your email to subscribe!', {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      //transition: "Bounce",
+      });
+  }else{
+    toast.success('Thanks for subscribing us!', {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      //transition: "Bounce",
+      });
+  }
+  }
+
   return (
     <div className="bg-blue-800 w-full mt-14 flex flex-col items-center justify-center font-notoSans py-10">
       <div className="w-full md:w-11/12 px-4 sm:px-6 lg:px-8">
@@ -65,15 +98,17 @@ export default function Footer({scrollFunction}) {
             <div className="relative mb-5">
               <input 
                 type="text" 
+                onChange={(e)=>{setEmail(e.target.value)}}
                 className="block w-4/5 md:w-full h-10 border border-gray-300 rounded pl-3 pr-16 text-black"
                 placeholder="Your Email Here"
               />
-              <button 
+              <button onClick={notify}
                         className="absolute top-0 right-10 md:right-12 transform -translate-y-1/2 translate-x-1/2 bg-red-600 text-white px-4 py-0 rounded"
                         style={{ top: "50%",height:"42px" }}
                     >
                         Subscribe
                     </button>
+              <ToastContainer />
             </div>
 
             <div className="flex items-center text-sm text-white mb-4">
