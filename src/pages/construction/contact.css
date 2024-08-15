@@ -3,11 +3,17 @@
     .custom-width-mobile {
       width: 365px; 
     }
+    .custom-width-mobile-R {
+      width: "20.8rem";
+    }
   }
   
   @media (min-width: 769px) {
     .custom-width-desktop {
       width: 404px; 
+    }
+    .custom-width-desktop-R {
+      width: "200px"; 
     }
   }
   

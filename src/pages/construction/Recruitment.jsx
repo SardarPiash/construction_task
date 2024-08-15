@@ -5,6 +5,7 @@ import { role } from "../../data/role";
 import ImageUrl from "../../component/DynamicImgUrl";
 import Benefits from "./Benefits";
 import ContactUs from "./ContactUs";
+import '../construction/contact.css';
 
  function RecruitmentPage({scrollFunction},ref) {
   // const ref = useRef(null || scroll);
@@ -74,7 +75,7 @@ import ContactUs from "./ContactUs";
                   className="bg-white p-6 rounded-lg text-center"
                   style={{
                     minHeight: "200px",
-                    maxWidth: "100%",
+                    maxWidth: "97%",
                     boxShadow:
                       "4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)",
                   }}
@@ -104,14 +105,14 @@ import ContactUs from "./ContactUs";
             </div>
 
             {role.length % 4 !== 0 && (
-              <div className="flex flex-col md:flex-row justify-center gap-8 mt-8">
+              <div className="flex flex-col md:flex-row justify-center gap-8 mt-8 max-w-custom-width-mobile-R md:custom-width-desktop-R">
                 {role.slice(4, 6).map((data, index) => (
                   <div
                     key={index}
                     className="bg-white p-6 rounded-lg text-center"
                     style={{
                       width: "100%",
-                      maxWidth: "21.8rem",
+                      maxWidth: "21.6rem",
                       minHeight: "200px",
                       boxShadow:
                         "4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)",
