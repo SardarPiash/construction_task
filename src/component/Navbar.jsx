@@ -191,7 +191,31 @@ export default function Navbar({scroll}) {
       {/* Mobile View */}
       <div className="md:hidden flex items-center justify-between p-0 bg-white">
         <img className="w-14 h-14" src={Logo} alt="Logo" />
+        <button onClick={() => toggleDropdown("Country")}>
         <img className="w-6 h-6" src={CountryIcon} alt="Country" />
+        </button>
+        {activeDropdown === "Country" && (
+              <div className="absolute right-32 mt-36 w-40 bg-white border shadow-lg z-10">
+                <Link
+                  to="/"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  English
+                </Link>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Bangla
+                </Link>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Hindi
+                </Link>
+                </div>
+                )}
         <button onClick={toggleMenu} className="text-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
