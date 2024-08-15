@@ -25,7 +25,7 @@ export default function Benefits() {
           >
             {/* Small white div */}
             <div
-              className="absolute inset-0 bg-white rounded-md"
+              className="absolute inset-0 bg-white rounded-md mt-8"
               style={{
                 width: "100%",
                 height: "176px",
