@@ -3,7 +3,8 @@ import bgImg from "../../assets/images/Background image 2.svg";
 import locationIcon from "../../assets/icon/Icon 8.svg";
 import phoneIcon from "../../assets/icon/Icon 9.svg";
 import mailIcon from "../../assets/icon/Icon 10.svg";
-import '../construction/contact.css'
+import Card from "../../component/Card";
+import '../construction/contact.css';
 
 const ContactUs = React.forwardRef((props, ref) => {
   const [name, setName] = useState("");
@@ -14,6 +15,7 @@ const ContactUs = React.forwardRef((props, ref) => {
   const [phoneError, setPhoneError] = useState("");
   const [msg, setMsg] = useState("");
   const [msgError, setMsgError] = useState("");
+  const [showCard, setShowCard] = useState(false); // State to control the Card visibility
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -27,43 +29,33 @@ const ContactUs = React.forwardRef((props, ref) => {
       setNameError("Enter First Name");
       flag = false;
       return;
-    } else {
-      setNameError("");
-      flag = true;
     }
 
     if (email === "") {
       setEmailError("Enter Email");
       flag = false;
       return;
-    } else {
-      setEmailError("");
-      flag = true;
     }
 
     if (phone === "") {
       setPhoneError("Enter Phone Number");
       flag = false;
       return;
-    } else {
-      setPhoneError("");
-      flag = true;
     }
 
     if (msg === "") {
       setMsgError("Enter Your Message");
       flag = false;
       return;
-    } else {
-      setMsgError("");
-      flag = true;
     }
 
     if (flag === true) {
-      alert("submit");
-    } else {
-      return;
+      setShowCard(true); // Show the card on successful submission
     }
+  }
+
+  function handleCloseCard() {
+    setShowCard(false); // Close the card
   }
 
   return (
@@ -75,61 +67,60 @@ const ContactUs = React.forwardRef((props, ref) => {
             "4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)",
         }}
       >
-        <div
-          className="relative custom-width-mobile ml-3 md:ml-0 md:custom-width-desktop md:h-full h-80"
-          // style={{ width: "404px" }}
-        >
+        {/* Left side with contact details */}
+        <div className="relative custom-width-mobile ml-3 md:ml-0 md:custom-width-desktop md:h-full h-80">
           <img
             src={bgImg}
             alt="Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 flex flex-col items-center justify-center  p-6">
-            <div className="text-center w-full h-72 md:w-3/4 md:h-5/7  md:text-left">
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+            <div className="text-center w-full h-72 md:w-3/4 md:h-5/7 md:text-left">
               <div className="text-white text-sm md:text-3xl font-bold">Contact Us</div>
               <div className="text-white text-xs md:text-sm font-normal mt-2 md:mt-4">
                 Say Something to start a live chat
               </div>
               <div className="flex flex-col md:flex-row items-start mt-4 md:mt-4">
-               <div className="flex">
-                <div className="flex items-center bg-blue-900 w-12 h-12 rounded md:mb-4">
-                  <img className="px-3 py-3" src={locationIcon} alt="Location" />
-                </div>
-                <div className="text-white text-left ml-4">
-                  <div>Company Location</div>
-                  <div className="text-xs">
-                    Bucuresti Sectorul1, Strada ING.
-                    <br /> ZABLOVSCHI, Nr. 10, BIROUL 1
+                <div className="flex">
+                  <div className="flex items-center bg-blue-900 w-12 h-12 rounded md:mb-4">
+                    <img className="px-3 py-3" src={locationIcon} alt="Location" />
                   </div>
-                </div>
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row items-start mt-4 md:mt-7">
-                <div className=" flex">
-                <div className="flex items-center bg-blue-900 w-12 h-12 rounded md:mb-4">
-                  <img className="px-3 py-3" src={phoneIcon} alt="Phone" />
-                </div>
-                <div className="text-white ml-4 text-left">
-                  <div>Phone Number</div>
-                  <div className="text-xs">+(40) 7372 28622</div>
-                </div>
+                  <div className="text-white text-left ml-4">
+                    <div>Company Location</div>
+                    <div className="text-xs">
+                      Bucuresti Sectorul1, Strada ING.
+                      <br /> ZABLOVSCHI, Nr. 10, BIROUL 1
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-start mt-4 md:mt-7">
                 <div className="flex">
-                <div className="flex items-center bg-blue-900 w-12 h-12 rounded mb-4 md:mb-0">
-                  <img className="px-3 py-3" src={mailIcon} alt="Email" />
+                  <div className="flex items-center bg-blue-900 w-12 h-12 rounded md:mb-4">
+                    <img className="px-3 py-3" src={phoneIcon} alt="Phone" />
+                  </div>
+                  <div className="text-white ml-4 text-left">
+                    <div>Phone Number</div>
+                    <div className="text-xs">+(40) 7372 28622</div>
+                  </div>
                 </div>
-                <div className="text-white ml-4 text-left">
-                  <div>Email Address</div>
-                  <div className="text-xs">career@hireandfire.eu</div>
-                </div>
+              </div>
+              <div className="flex flex-col md:flex-row items-start mt-4 md:mt-7">
+                <div className="flex">
+                  <div className="flex items-center bg-blue-900 w-12 h-12 rounded mb-4 md:mb-0">
+                    <img className="px-3 py-3" src={mailIcon} alt="Email" />
+                  </div>
+                  <div className="text-white ml-4 text-left">
+                    <div>Email Address</div>
+                    <div className="text-xs">career@hireandfire.eu</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Right side with the form */}
         <div className="bg-white flex-1 ml-0 md:ml-10 p-6">
           <div className="mt-4 md:mt-12">
             <div>
@@ -182,6 +173,17 @@ const ContactUs = React.forwardRef((props, ref) => {
           </button>
         </div>
       </div>
+
+      {/* Render the Card component conditionally */}
+      {showCard && (
+        <Card
+          name={name}
+          email={email}
+          phone={phone}
+          msg={msg}
+          onClose={handleCloseCard}
+        />
+      )}
     </div>
   );
 });
