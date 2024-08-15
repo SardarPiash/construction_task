@@ -1,0 +1,13 @@
+
+@media (max-width: 768px) {
+    .custom-width-mobile {
+      width: 365px; 
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .custom-width-desktop {
+      width: 404px; 
+    }
+  }
+  
