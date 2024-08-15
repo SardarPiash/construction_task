@@ -50,12 +50,12 @@ const ContactUs = React.forwardRef((props, ref) => {
     }
 
     if (flag === true) {
-      setShowCard(true); // Show the card on successful submission
+      setShowCard(true); 
     }
   }
 
   function handleCloseCard() {
-    setShowCard(false); // Close the card
+    setShowCard(false); 
   }
 
   return (
@@ -67,7 +67,6 @@ const ContactUs = React.forwardRef((props, ref) => {
             "4px -4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2)",
         }}
       >
-        {/* Left side with contact details */}
         <div className="relative custom-width-mobile ml-3 md:ml-0 md:custom-width-desktop md:h-full h-80">
           <img
             src={bgImg}
@@ -120,7 +119,6 @@ const ContactUs = React.forwardRef((props, ref) => {
           </div>
         </div>
 
-        {/* Right side with the form */}
         <div className="bg-white flex-1 ml-0 md:ml-10 p-6">
           <div className="mt-4 md:mt-12">
             <div>
@@ -167,14 +165,13 @@ const ContactUs = React.forwardRef((props, ref) => {
 
           <button
             onClick={handleSubmit}
-            className="bg-blue-700 text-white py-2 px-4 mt-6 rounded-md hover:bg-blue-800 transition ease-in-out duration-300 font-notoSans text-sm"
+            className="bg-blue-700 ml-24 md:ml-36 text-white py-2 px-4 mt-6 rounded-md hover:bg-blue-800 transition ease-in-out duration-300 font-notoSans text-sm"
           >
             Send Message
           </button>
         </div>
       </div>
 
-      {/* Render the Card component conditionally */}
       {showCard && (
         <Card
           name={name}
