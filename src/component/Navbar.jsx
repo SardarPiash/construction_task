@@ -6,6 +6,7 @@ import Icon_1 from "../assets/icon/Icon 1.svg";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -14,6 +15,10 @@ export default function Navbar() {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const toggleDropdown = (menu) => {
+    setActiveDropdown(activeDropdown === menu ? null : menu);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -25,8 +30,8 @@ export default function Navbar() {
         <div className="w-1/12 bg-white ml-28">
           <img className="w-14 h-14" src={Logo} alt="Logo" />
         </div>
-        <div className="flex text-sm w-5/12 bg-white pt-3 ml-36 space-x-6 font-medium">
-          <span>
+        <div className="flex text-sm w-5/12 bg-white pt-3 ml-36 space-x-6 font-medium relative">
+          <span className="relative">
             <Link
               to="/About"
               className={`flex hover:text-blue-400 focus:text-red-500 ${
@@ -36,29 +41,69 @@ export default function Navbar() {
               About Us
             </Link>
           </span>
-          <span>
-            <Link
-              to="/Employers"
-              className={`flex hover:text-blue-400 ${
-                isActive("/Employers") ? "text-red-500" : ""
-              }`}
+          <span className="relative">
+            <button
+              className="flex hover:text-blue-400 focus:text-red-500"
+              onClick={() => toggleDropdown("Employers")}
             >
               Employers
               <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-            </Link>
+            </button>
+            {activeDropdown === "Employers" && (
+              <div className="absolute left-0 mt-2 w-40 bg-white border shadow-lg z-10">
+                <Link
+                  to="/Employers"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  HR Services
+                </Link>
+                <Link
+                  to="/Employers"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Consulting
+                </Link>
+                <Link
+                  to="/Employers"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Training
+                </Link>
+              </div>
+            )}
           </span>
-          <span>
-            <Link
-              to="/FindWorkers"
-              className={`flex hover:text-blue-400 ${
-                isActive("/FindWorkers") ? "text-red-500" : ""
-              }`}
+          <span className="relative">
+            <button
+              className="flex hover:text-blue-400"
+              onClick={() => toggleDropdown("FindWorkers")}
             >
               Find Workers
               <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-            </Link>
+            </button>
+            {activeDropdown === "FindWorkers" && (
+              <div className="absolute left-0 mt-2 w-40 bg-white border shadow-lg z-10">
+                <Link
+                  to="/FindWorkers"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Full Time
+                </Link>
+                <Link
+                  to="/FindWorkers"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Part Time
+                </Link>
+                <Link
+                  to="/FindWorkers"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Contract
+                </Link>
+              </div>
+            )}
           </span>
-          <span>
+          <span className="relative">
             <Link
               to="/"
               className={`flex hover:text-blue-400 ${
@@ -68,16 +113,36 @@ export default function Navbar() {
               Industry
             </Link>
           </span>
-          <span>
-            <Link
-              to="/Resources"
-              className={`flex hover:text-blue-400 ${
-                isActive("/Resources") ? "text-red-500" : ""
-              }`}
+          <span className="relative">
+            <button
+              className="flex hover:text-blue-400"
+              onClick={() => toggleDropdown("Resources")}
             >
               Resources
               <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-            </Link>
+            </button>
+            {activeDropdown === "Resources" && (
+              <div className="absolute left-0 mt-2 w-40 bg-white border shadow-lg z-10">
+                <Link
+                  to="/Resources"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Blog
+                </Link>
+                <Link
+                  to="/Resources"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Guides
+                </Link>
+                <Link
+                  to="/Resources"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  FAQs
+                </Link>
+              </div>
+            )}
           </span>
         </div>
         <div className="mt-1">
@@ -121,7 +186,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed top-0 right-0 w-3/5 h-full bg-gray-200  shadow-lg z-50">
+        <div className="md:hidden fixed top-0 right-0 w-3/5 h-full bg-gray-200 shadow-lg z-50">
           <button
             onClick={closeMenu}
             className="self-end text-gray-600 text-2xl ml-5"
@@ -139,27 +204,67 @@ export default function Navbar() {
                 About Us
               </Link>
             </span>
-            <span>
-              <Link
-                to="/Employers"
-                className={`flex hover:text-blue-400 text-lg ${
-                  isActive("/Employers") ? "text-red-500" : ""
-                }`}
+            <span className="relative">
+              <button
+                className="flex hover:text-blue-400 text-lg"
+                onClick={() => toggleDropdown("Employers")}
               >
                 Employers
                 <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-              </Link>
+              </button>
+              {activeDropdown === "Employers" && (
+                <div className="ml-4 mt-2 space-y-2">
+                  <Link
+                    to="/Employers"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    HR Services
+                  </Link>
+                  <Link
+                    to="/Employers"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Consulting
+                  </Link>
+                  <Link
+                    to="/Employers"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Training
+                  </Link>
+                </div>
+              )}
             </span>
-            <span>
-              <Link
-                to="/FindWorkers"
-                className={`flex hover:text-blue-400 text-lg ${
-                  isActive("/FindWorkers") ? "text-red-500" : ""
-                }`}
+            <span className="relative">
+              <button
+                className="flex hover:text-blue-400 text-lg"
+                onClick={() => toggleDropdown("FindWorkers")}
               >
                 Find Workers
                 <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-              </Link>
+              </button>
+              {activeDropdown === "FindWorkers" && (
+                <div className="ml-4 mt-2 space-y-2">
+                  <Link
+                    to="/FindWorkers"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Full Time
+                  </Link>
+                  <Link
+                    to="/FindWorkers"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Part Time
+                  </Link>
+                  <Link
+                    to="/FindWorkers"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Contract
+                  </Link>
+                </div>
+              )}
             </span>
             <span>
               <Link
@@ -171,16 +276,36 @@ export default function Navbar() {
                 Industry
               </Link>
             </span>
-            <span>
-              <Link
-                to="/Resources"
-                className={`flex hover:text-blue-400 text-lg ${
-                  isActive("/Resources") ? "text-red-500" : ""
-                }`}
+            <span className="relative">
+              <button
+                className="flex hover:text-blue-400 text-lg"
+                onClick={() => toggleDropdown("Resources")}
               >
                 Resources
                 <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-              </Link>
+              </button>
+              {activeDropdown === "Resources" && (
+                <div className="ml-4 mt-2 space-y-2">
+                  <Link
+                    to="/Resources"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    to="/Resources"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Guides
+                  </Link>
+                  <Link
+                    to="/Resources"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    FAQs
+                  </Link>
+                </div>
+              )}
             </span>
             <span className="mt-auto">
               <Link to="/" className="flex border rounded-md p-2 bg-blue-600">
