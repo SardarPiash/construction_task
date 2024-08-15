@@ -72,7 +72,7 @@ export default function Benefits() {
         <h3 className="text-lg tracking-tighter font-semibold mb-2 text-center">
           {data.title}
         </h3>
-        <p className="text-black tracking-tighter text-sm text-center">{data.description}</p>
+        <p className="text-black tracking-tighter text-xs md:text-sm text-center">{data.description}</p>
       </div>
       
     </div>

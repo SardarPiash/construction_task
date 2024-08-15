@@ -154,12 +154,36 @@ export default function Navbar({scroll}) {
         </div>
         <div className="w-1/12 bg-white ml-16">
           <span className="flex">
+            <button onClick={() => toggleDropdown("Country")}>
             <img
               className="flex w-6 h-6 mt-3"
               src={CountryIcon}
               alt="Country"
             />
-            <img className="flex w-3 h-3 mt-6" src={Icon_1} alt="Icon" />
+            </button>
+            <img className="flex w-3 h-3 mt-5" src={Icon_1} alt="Icon" />
+            {activeDropdown === "Country" && (
+              <div className="absolute right-68 mt-10 w-40 bg-white border shadow-lg z-10">
+                <Link
+                  to="/"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  English
+                </Link>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Bangla
+                </Link>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Hindi
+                </Link>
+                </div>
+                )}
           </span>
         </div>
       </div>
