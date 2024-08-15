@@ -13,9 +13,9 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className="bg-blue-800 w-full mt-14 flex flex-col items-center justify-center font-notoSans py-10">
-      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="w-full md:w-11/12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start md:w-96">
             <img src={hireandFire} alt="Hire & Fire Logo" className="mb-4" />
             <p className="text-white text-sm mb-5">
               Hire & Fire is a cutting-edge job website designed to connect
@@ -28,40 +28,40 @@ export default function Footer() {
               needs. Please note that it operates on an employer basis and does
               not provide jobs directly to workers.
             </p>
-            <button className="bg-red-600 w-2/5 md:w-full sm:w-40 h-10 text-white text-sm rounded mb-4">
+            <button className="bg-red-600 w-2/5 md:w-28 sm:w-40 h-10 text-white text-sm rounded mb-4">
               Contact Us
             </button>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col md:w-72 md:ml-16">
             <div className="text-xl text-white font-semibold mb-3">Quick Links</div>
             <hr className="w-24 border-1 border-white mb-6" />
             <div className="text-sm text-white">
               {["Home", "About Us", "Services", "Industries We Serve", "Blog & News", "FAQ", "Contact Us"].map((item, index) => (
-                <div className="flex items-center mt-4" key={index}>
-                  <img src={arrowIcon} alt="Arrow Icon" className="w-4 h-4" />
-                  <Link className="ml-2 hover:underline" to="#">{item}</Link>
+                <div className={`flex items-center mt-4 ${index === 0 ? 'md:mt-2' : 'md:mt-5'}`} key={index}>
+                  <img src={arrowIcon} alt="Arrow Icon" className="w-4 h-4"  />
+                  <Link className="ml-2 hover:underline md:text-base" to="#">{item}</Link>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col md:w-72 md:ml-2">
             <div className="text-xl text-white font-semibold mb-3">Our Services</div>
             <hr className="w-32 border-1 border-white mb-6" />
             <div className="text-sm text-white">
               {["Permanent Recruitment", "Contract Staffing", "Housing & Accommodation Support", "Compliance and Legal Support", "Workforce Planning", "Background Checks", "Onboarding Support"].map((item, index) => (
-                <div className="flex items-center mt-4" key={index}>
+                <div className={`flex items-center mt-4 ${index === 0 ? 'md:mt-2' : 'md:mt-5'}`} key={index}>
                   <img src={arrowIcon} alt="Arrow Icon" className="w-4 h-4" />
-                  <Link className="ml-2 hover:underline" to="#">{item}</Link>
+                  <Link className="ml-2 hover:underline md:text-base md:tracking-tight" to="#">{item}</Link>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col md:mr-4">
             <div className="text-xl text-white font-semibold mb-3">Get In Touch</div>
-            <p className="text-base text-white mb-5">Subscribe to our newsletter to get the latest updates & news.</p>
+            <p className="text-base text-white mb-5 md:mt-4">Subscribe to our newsletter to get the latest updates & news.</p>
             <div className="relative mb-5">
               <input 
                 type="text" 
@@ -69,7 +69,7 @@ export default function Footer() {
                 placeholder="Your Email Here"
               />
               <button 
-                        className="absolute top-0 right-10 md:right-0 transform -translate-y-1/2 translate-x-1/2 bg-red-600 text-white px-4 py-0 rounded"
+                        className="absolute top-0 right-10 md:right-12 transform -translate-y-1/2 translate-x-1/2 bg-red-600 text-white px-4 py-0 rounded"
                         style={{ top: "50%",height:"42px" }}
                     >
                         Subscribe
@@ -90,11 +90,11 @@ export default function Footer() {
               <span className="ml-2">contact@hireandfire.agency</span>
             </div>
 
-            <div className="flex items-center text-sm text-white">
-              <span className="bg-red-500 w-7 h-7 rounded-full flex items-center justify-center">
-                <img className="p-2" src={locationIcon} alt="Location Icon" />
+            <div className="flex items-center text-sm text-white ">
+              <span className="bg-red-500 w-7 h-7 md:w-7 md:h-7 rounded-full flex items-center justify-center">
+                <img className="p-2 md:p-1.5" src={locationIcon} alt="Location Icon" />
               </span>
-              <span className="ml-2">Strada ING. Zablovschi, Nr. 10, Biroul 1, Sectorul 1, Bucuresti, Romania.</span>
+              <span className="ml-2 md:ml-2">Strada ING. Zablovschi, Nr. 10, Biroul 1,<br /> Sectorul 1, Bucuresti, Romania.</span>
             </div>
           </div>
         </div>

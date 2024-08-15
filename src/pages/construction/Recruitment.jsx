@@ -11,20 +11,20 @@ export default function Recruitment({ scroll }) {
 
   function handleScroll() {
     console.log("click");
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
     <div className="font-notoSans">
       <div className="bg-white text-black-800">
         {/* Hero Section */}
-        <section className="flex flex-col md:flex-row mt-20">
-          <div className="w-full md:w-1/2 mb-8 md:mb-0">
-            <div className="container mx-auto w-11/12 md:w-9/12">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-9 text-left tracking-wide leading-snug">
+        <section className="flex flex-col md:flex-row mt-20 md:w-11/12 md:mx-auto">
+          <div className="w-full md:w-1/2 mb-8 md:mb-0 md:ml-10">
+            <div className="container mx-auto w-11/12 md:w-full">
+              <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-7 text-left tracking-wide leading-snug">
                 Your Partner in International Construction Recruitment
               </h1>
-              <p className="text-sm sm:text-base md:text-lg mb-4 md:mb-6 max-w-3xl mx-auto text-justify">
+              <p className="text-sm sm:text-base md:text-base mb-4 md:mb-6 max-w-3xl mx-auto ">
                 "Hire & Fire Job's platform for the construction industry
                 connects companies with skilled professionals globally. We
                 streamline recruitment processes, ensuring precise matches for
@@ -36,15 +36,22 @@ export default function Recruitment({ scroll }) {
                 with ease."
               </p>
               <span className="flex justify-center md:justify-start">
-                <button onClick={handleScroll} className="bg-blue-800 text-white px-4 py-2 rounded-sm">
+                <button
+                  onClick={handleScroll}
+                  className="bg-blue-800 text-white px-4 py-2 rounded-sm"
+                >
                   Contact Us
                 </button>
               </span>
             </div>
           </div>
-          <div className="w-full md:w-1/2">
-            <div className="w-full h-full">
-              <img className="w-full h-full object-cover rounded-sm" src={Img_1} alt="Construction" />
+          <div className="w-full md:w-2/3 md:ml-20">
+            <div className="w-full md:w-4/5 h-full">
+              <img
+                className="w-full h-full object-cover rounded-md"
+                src={Img_1}
+                alt="Construction"
+              />
             </div>
           </div>
         </section>
@@ -73,15 +80,20 @@ export default function Recruitment({ scroll }) {
                   }}
                 >
                   <img
-                    src={ImageUrl(data.url, 'images')}
+                    src={ImageUrl(data.url, "images")}
                     alt={data.title}
                     className="w-full h-40 object-cover rounded-md mb-4"
                   />
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{data.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                    {data.title}
+                  </h3>
                   <p className="text-black mb-4 tracking-tighter">
                     {data.description}
                   </p>
-                  <button onClick={handleScroll} className="text-red-600 font-medium">
+                  <button
+                    onClick={handleScroll}
+                    className="text-red-600 font-medium"
+                  >
                     <div className="flex items-center justify-center">
                       <span>Contact Us</span>
                       <img className="ml-2" src={logo} alt="Contact Us" />
@@ -106,15 +118,20 @@ export default function Recruitment({ scroll }) {
                     }}
                   >
                     <img
-                      src={ImageUrl(data.url, 'images')}
+                      src={ImageUrl(data.url, "images")}
                       alt={data.title}
                       className="w-full h-40 object-cover rounded-md mb-4"
                     />
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{data.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                      {data.title}
+                    </h3>
                     <p className="text-black mb-4 tracking-tighter">
                       {data.description}
                     </p>
-                    <button onClick={handleScroll} className="text-red-600 font-medium">
+                    <button
+                      onClick={handleScroll}
+                      className="text-red-600 font-medium"
+                    >
                       <div className="flex items-center justify-center">
                         <span>Contact Us</span>
                         <img className="ml-2" src={logo} alt="Contact Us" />
