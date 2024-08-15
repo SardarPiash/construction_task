@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/icon/Logo.svg";
 import CountryIcon from "../assets/icon/Country Icon.svg";
 import Icon_1 from "../assets/icon/Icon 1.svg";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,6 +15,8 @@ export default function Navbar() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="w-full h-12 bg-white-400 font-notoSans relative">
@@ -23,39 +27,64 @@ export default function Navbar() {
         </div>
         <div className="flex text-sm w-5/12 bg-white pt-3 ml-36 space-x-6 font-medium">
           <span>
-            <a href="/" className="flex hover:text-blue-400 focus:text-red-500">
+            <Link
+              to="/About"
+              className={`flex hover:text-blue-400 focus:text-red-500 ${
+                isActive("/About") ? "text-red-500" : ""
+              }`}
+            >
               About Us
-            </a>
+            </Link>
           </span>
           <span>
-            <a href="/" className="flex hover:text-blue-400">
+            <Link
+              to="/Employers"
+              className={`flex hover:text-blue-400 ${
+                isActive("/Employers") ? "text-red-500" : ""
+              }`}
+            >
               Employers
               <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-            </a>
+            </Link>
           </span>
           <span>
-            <a href="/" className="flex hover:text-blue-400">
+            <Link
+              to="/FindWorkers"
+              className={`flex hover:text-blue-400 ${
+                isActive("/FindWorkers") ? "text-red-500" : ""
+              }`}
+            >
               Find Workers
               <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-            </a>
+            </Link>
           </span>
           <span>
-            <a href="/" className="flex hover:text-blue-400">
+            <Link
+              to="/"
+              className={`flex hover:text-blue-400 ${
+                isActive("/") ? "text-red-500" : ""
+              }`}
+            >
               Industry
-            </a>
+            </Link>
           </span>
           <span>
-            <a href="/" className="flex hover:text-blue-400">
+            <Link
+              to="/Resources"
+              className={`flex hover:text-blue-400 ${
+                isActive("/Resources") ? "text-red-500" : ""
+              }`}
+            >
               Resources
               <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-            </a>
+            </Link>
           </span>
         </div>
         <div className="mt-1">
           <span>
-            <a href="/" className="flex border rounded-md p-1.5 bg-blue-600">
+            <Link to="/" className="flex border rounded-md p-1.5 bg-blue-600">
               <button className="text-white">Contact Us</button>
-            </a>
+            </Link>
           </span>
         </div>
         <div className="w-1/12 bg-white ml-16">
@@ -92,46 +121,71 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed top-0 right-0 w-3/4 h-full bg-white bg-opacity-75 shadow-lg z-50">
+        <div className="md:hidden fixed top-0 right-0 w-3/5 h-full bg-gray-200  shadow-lg z-50">
           <button
             onClick={closeMenu}
-            className="self-end text-gray-600 text-2xl ml-40"
+            className="self-end text-gray-600 text-2xl ml-5"
           >
             ×
           </button>
           <div className="flex flex-col p-4 space-y-4">
             <span>
-              <a href="/" className="flex hover:text-blue-400 text-lg">
+              <Link
+                to="/About"
+                className={`flex hover:text-blue-400 text-lg ${
+                  isActive("/About") ? "text-red-500" : ""
+                }`}
+              >
                 About Us
-              </a>
+              </Link>
             </span>
             <span>
-              <a href="/" className="flex hover:text-blue-400 text-lg">
+              <Link
+                to="/Employers"
+                className={`flex hover:text-blue-400 text-lg ${
+                  isActive("/Employers") ? "text-red-500" : ""
+                }`}
+              >
                 Employers
                 <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-              </a>
+              </Link>
             </span>
             <span>
-              <a href="/" className="flex hover:text-blue-400 text-lg">
+              <Link
+                to="/FindWorkers"
+                className={`flex hover:text-blue-400 text-lg ${
+                  isActive("/FindWorkers") ? "text-red-500" : ""
+                }`}
+              >
                 Find Workers
                 <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-              </a>
+              </Link>
             </span>
             <span>
-              <a href="/" className="flex hover:text-blue-400 text-lg">
+              <Link
+                to="/"
+                className={`flex hover:text-blue-400 text-lg ${
+                  isActive("/") ? "text-red-500" : ""
+                }`}
+              >
                 Industry
-              </a>
+              </Link>
             </span>
             <span>
-              <a href="/" className="flex hover:text-blue-400 text-lg">
+              <Link
+                to="/Resources"
+                className={`flex hover:text-blue-400 text-lg ${
+                  isActive("/Resources") ? "text-red-500" : ""
+                }`}
+              >
                 Resources
                 <img className="w-4 h-4 mt-1 ml-1" src={Icon_1} alt="Icon" />
-              </a>
+              </Link>
             </span>
             <span className="mt-auto">
-              <a href="/" className="flex border rounded-md p-2 bg-blue-600">
+              <Link to="/" className="flex border rounded-md p-2 bg-blue-600">
                 <button className="text-white">Contact Us</button>
-              </a>
+              </Link>
             </span>
           </div>
         </div>
