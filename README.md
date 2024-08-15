@@ -28,10 +28,10 @@ A brief description of your project, highlighting its purpose and key features.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/SardarPiash/construction_task
 
 # Navigate to the project directory
-cd your-repo-name
+cd construction_task
 
 # Install dependencies
 npm install
