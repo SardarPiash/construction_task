@@ -9,7 +9,7 @@ export default function Benefits() {
     <div>
       <div className="bg-white py-16">
         <div className="text-center">
-          <h2 className="text-5xl font-semibold mb-4  ">
+          <h2 className="text-3xl md:text-5xl font-semibold mb-4  ">
             Benefits of Hiring Through Us
           </h2>
           <p className="text-base text-gray-600 mb-12">
