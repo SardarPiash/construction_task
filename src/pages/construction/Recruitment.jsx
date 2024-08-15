@@ -18,7 +18,7 @@ export default function Recruitment({ scroll }) {
     <div className="font-notoSans">
       <div className="bg-white text-black-800">
         {/* Hero Section */}
-        <section className="flex flex-col md:flex-row mt-20 md:w-11/12 md:mx-auto">
+        <section className="flex flex-col md:flex-row mt-20 md:w-11/12 md:ml-36">
           <div className="w-full md:w-1/2 mb-8 md:mb-0 md:ml-10">
             <div className="container mx-auto w-11/12 md:w-full">
               <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-7 text-left tracking-wide leading-snug">
