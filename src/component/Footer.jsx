@@ -10,7 +10,7 @@ import twitter from "../assets/icon/twitter.svg";
 import telegram from "../assets/icon/telegram.svg";
 import { Link } from "react-router-dom";
 
-export default function Footer() {
+export default function Footer({scrollFunction}) {
   return (
     <div className="bg-blue-800 w-full mt-14 flex flex-col items-center justify-center font-notoSans py-10">
       <div className="w-full md:w-11/12 px-4 sm:px-6 lg:px-8">
@@ -28,7 +28,7 @@ export default function Footer() {
               needs. Please note that it operates on an employer basis and does
               not provide jobs directly to workers.
             </p>
-            <button className="bg-red-600 w-2/5 md:w-28 sm:w-40 h-10 text-white text-sm rounded mb-4">
+            <button onClick={scrollFunction} className="bg-red-600 w-2/5 md:w-28 sm:w-40 h-10 text-white text-sm rounded mb-4">
               Contact Us
             </button>
           </div>

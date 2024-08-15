@@ -27,7 +27,7 @@ export default function App() {
             <Route path="/FindWorkers" element={<FindWorkers />} />
             <Route path="/Resources" element={<Resources />} />
           </Routes>
-          <Footer />
+          <Footer scrollFunction={handleScroll}/>
       </BrowserRouter>
     </>
   );
